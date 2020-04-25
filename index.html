@@ -1,0 +1,59 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="scripts/scriptOperation.js"></script>
+	<script type="text/javascript" src="scripts/scriptWorkWithFormula.js"></script>
+</head>
+
+<style type="text/css">
+        p {
+            margin: 5px;
+        }
+</style>
+	
+<body>
+<details>
+	<summary>Грамматика языка логики высказываний (спойлер).</summary>
+    <p><константа>     ::=1|0</p>
+    <p><символ>        ::=A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z</p>
+    <p><отрицание>     ::=!</p>
+    <p><конъюнкция>        ::= &amp;</p>
+    <p><дизъюнкция>        ::=|</p>
+    <p><импликация>        ::=-></p>
+    <p><эквиваленция>      ::=~</p>
+    <p><открывающая скобка>    ::=(</p>
+    <p><закрывающая скобка>    ::=)</p>
+    <p><бинарная связка>   ::=<конъюнкция>|<дизъюнкция>|<импликация>|<эквиваленция></p>
+    <p><атом>          ::=<символ></p>
+    <p><унарная сложная формула>::=<открывающая скобка><отрицание><формула><закрывающая скобка></p>
+    <p><бинарная сложная формула>::=<открывающая скобка><формула><бинарная связка><формула><закрывающая скобка></p>
+    <p><формула>       ::=<константа>|<атом>|<унарная сложная формула>|<бинарная сложная формула></p>
+	</details>
+	
+	<details>
+	<summary>Примеры (спойлер).</summary>
+    <p>Первая формула НЕ следует из второй если первая формула равна 1, а другая - 0 (при одинаковых значениях A и B). То есть из единицы не может следовать ноль.</p>
+    <p>(A->B) следует из (A&B)</p>
+	<p>((!P)~Q) не следует из (P|Q)</p>
+	<p>(P|Q) следует из ((!P)&Q)</p>
+	</details>
+
+
+	<form name="myForm">
+		Следует ли формула <input type="text" name="secondFormula" value="(A->B)">
+		из формулы <input type="text" name="firstFormula" value="(A&B)">
+		<input type="button" name="button1" value="Проверить" onClick="clickCheckFormula(document.myForm.firstFormula.value, document.myForm.secondFormula.value)">
+	</form>
+	<div id="answer"></div> <br>
+	
+	<form name="myFormTest">
+		Тест: Следует ли формула <input type="text" name="secondFormulaTest">
+		из формулы <input type="text" name="firstFormulaTest"> ? <br>
+		<input type="button" onclick="clickYes(document.myFormTest.firstFormulaTest.value, document.myFormTest.secondFormulaTest.value)" value="Да"></input>
+        <input type="button" onclick="clickNo(document.myFormTest.firstFormulaTest.value, document.myFormTest.secondFormulaTest.value)" value="Нет"></input>
+	</form>
+	<div id="answerTest"></div><br>
+	
+	<div id="truthTable"></div>
+</body>
+</html>
