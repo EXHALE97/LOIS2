@@ -1,4 +1,5 @@
-"use strict"
+
+
 function check(firstFormula, secondFormula) {
     if (firstFormula != "" && secondFormula != "" && verificateFormula(firstFormula) && verificateFormula(secondFormula)) {
       // заменяет минусы в импликациях
@@ -52,6 +53,9 @@ function verificateFormula(formula){
     }
 }
 
+/**
+	* Автор Пиколюк И.Ю.
+	*/
 function createTable(symbols,matrix) {
   var table = document.createElement('table');
   var answer = document.getElementById("truthTable");

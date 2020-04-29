@@ -3,6 +3,7 @@
 	<meta charset="utf-8">
 	<script type="text/javascript" src="scripts/scriptOperation.js"></script>
 	<script type="text/javascript" src="scripts/scriptWorkWithFormula.js"></script>
+	<script type="text/javascript" src="scripts/generateFormula.js"></script>
 </head>
 
 <style type="text/css">
@@ -47,8 +48,9 @@
 	<div id="answer"></div> <br>
 	
 	<form name="myFormTest">
-		Тест: Следует ли формула <input type="text" name="secondFormulaTest">
-		из формулы <input type="text" name="firstFormulaTest"> ? <br>
+		Тест: Следует ли формула <input id="secondFormulaTest" type="text" name="secondFormulaTest">
+		из формулы <input id="firstFormulaTest" type="text" name="firstFormulaTest"> ?  
+		<input type="button" onclick="generateTest()" value="Генерация"></input> <br>
 		<input type="button" onclick="clickYes(document.myFormTest.firstFormulaTest.value, document.myFormTest.secondFormulaTest.value)" value="Да"></input>
         <input type="button" onclick="clickNo(document.myFormTest.firstFormulaTest.value, document.myFormTest.secondFormulaTest.value)" value="Нет"></input>
 	</form>
